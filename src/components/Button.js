@@ -21,13 +21,15 @@ const styles = {
         width: '90%',
         marginTop: 11,
         borderRadius: 15,
-        backgroundColor: '#A9A9A9',
+        backgroundColor: '#F2CB06',
         justifyContent: 'center',
         alignItems: 'center'
+
     },
     text: {
         fontSize: 18,
-        color: '#F8F8F8'
+        color: '#000000',
+        fontWeight: 'bold'
     }
 };
 

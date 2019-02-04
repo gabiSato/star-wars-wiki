@@ -20,15 +20,16 @@ const styles = {
     view: {
         height: 40,
         width: '90%',
-        borderWidth: 1,
+        borderWidth: 1.5,
         borderRadius: 15,
-        borderColor: '#ddd',
+        borderColor: '#F2CB06',
     },
     input: {
         flex: 1,
         paddingRight: 15,
         paddingLeft: 15,
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold'
     }
 };
 
