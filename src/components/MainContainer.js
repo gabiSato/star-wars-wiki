@@ -1,10 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ImageBackground } from 'react-native';
 
 const MainContainer = (props) => (
-    <View style={styles.container}>
-        { props.children }
-    </View>
+    <ImageBackground 
+        source={require('./images/background.png')} 
+        resizeMode="contain"
+        style={styles.container}
+    >
+        {props.children}
+    </ImageBackground>
 );
 
 const styles = {
@@ -13,7 +17,7 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: "#000000"
-    }
+    },
 };
 
 export default MainContainer;
