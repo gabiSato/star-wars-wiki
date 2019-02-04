@@ -29,7 +29,8 @@ const styles = {
         paddingRight: 15,
         paddingLeft: 15,
         fontSize: 18,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: '#F2CB06'
     }
 };
 
