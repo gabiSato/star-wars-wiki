@@ -4,7 +4,6 @@ import { ImageBackground } from 'react-native';
 const MainContainer = (props) => (
     <ImageBackground 
         source={require('./images/background.png')} 
-        resizeMode="contain"
         style={styles.container}
     >
         {props.children}

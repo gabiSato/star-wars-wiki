@@ -1,72 +1,63 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
 import MainContainer from '../components/MainContainer';
 import Card from '../components/Card';
 import CardSection from '../components/CardSection';
+import CardTitle from '../components/CardTitle';
+import CardDetails from '../components/CardDetails';
+import CardList from '../components/CardList';
 import Link from '../components/Link';
 
-const PersonDetail = ({ navigation }) => {
-    const { name, title, text, homeworldContainer, homeworldText } = styles;
-    return (
-        <MainContainer>
-            <Card>
-                <CardSection>
-                    <Text style={name}>{navigation.state.params.result.name}</Text>
-                </CardSection>
-                <CardSection>
-                    <Text style={text}>Birth year: {navigation.state.params.result.birth_year}</Text>
-                    <Text style={text}>Eye color: {navigation.state.params.result.eye_color}</Text>
-                    <Text style={text}>Gender: {navigation.state.params.result.gender}</Text>
-                    <Text style={text}>Hair color: {navigation.state.params.result.hair_color}</Text>
-                    <Text style={text}>Height: {navigation.state.params.result.height}</Text>
-                    <Text style={text}>Mass: {navigation.state.params.result.mass}</Text>
-                    <Text style={text}>Skin color: {navigation.state.params.result.skin_color}</Text>
-                    <View style={homeworldContainer}>
-                        <Text style={homeworldText}>Homeworld:</Text>
-                        <Link item={navigation.state.params.result.homeworld} />
-                    </View>
-                </CardSection>
-                <CardSection>
-                    <Text style={title}>Films</Text>
-                </CardSection>
-                <CardSection>
-                    {navigation.state.params.result.films.map(film => (<Link key={film} item={film}/>))}
-                </CardSection>
-                <CardSection>
-                    <Text style={title}>Vehicles</Text>
-                </CardSection>
-                <CardSection>
-                    {navigation.state.params.result.vehicles.map(vehicle => (<Link key={vehicle} item={vehicle}/>))}
-                </CardSection>
-                <CardSection>
-                    <Text style={title}>Starships</Text>
-                </CardSection>
-                <CardSection>
-                    {navigation.state.params.result.starships.map(starship => (<Link key={starship} item={starship}/>))}
-                </CardSection>
-            </Card>
-        </MainContainer>
-    );
-};
+//Tela de resultado da pesquisa de personagem, pega como parametros os dados de Main.js
+class PersonDetail extends Component {
+    static navigationOptions = {
+        title: "Personagem",
+    };
 
-PersonDetail.navigationOptions = () => ({
-    title: "Personagem",
-});
+    render() {
+        const person = this.props.navigation.getParam('result', {});
+        const { homeworldContainer, homeworldText } = styles;
+
+        return (
+            <MainContainer>
+                <Card>
+                    <CardTitle title={person.name} />
+                    <CardSection>
+                        <CardDetails name={"Birth year"} value={person.birth_year} />
+                        <CardDetails name={"Eye color"} value={person.eye_color} />
+                        <CardDetails name={"Gender"} value={person.gender} />
+                        <CardDetails name={"Hair color"} value={person.hair_color} />
+                        <CardDetails name={"Height"} value={person.height} />
+                        <CardDetails name={"Mass"} value={person.mass} />
+                        <CardDetails name={"Skin color"} value={person.skin_color} />
+                        <View style={homeworldContainer}>
+                            <Text style={homeworldText}>Homeworld:</Text>
+                            <Link item={person.homeworld} itemClass={""} />
+                        </View>
+                    </CardSection>
+                    <CardList 
+                        title={"Films"}
+                        list={person.films}
+                        listClass={"film"}
+                    />
+                    <CardList 
+                        title={"Vehicles"}
+                        list={person.vehicles}
+                        listClass={"vehicle"}
+                    />
+                    <CardList 
+                        title={"Starships"}
+                        list={person.starships}
+                        listClass={"starship"}
+                    />
+                </Card>
+            </MainContainer>
+        );
+    }
+}
 
 const styles = {
-    name: {
-        color: '#F2CB06',
-        fontWeight: 'bold',
-        fontSize: 15
-    },
-    title: {
-        color: '#F2CB06',
-        fontWeight: 'bold'
-    },
-    text: {
-        color: '#F2CB06'
-    },
     homeworldContainer: {
         flexDirection: 'row', 
         justifyContent: 'flex-start'
