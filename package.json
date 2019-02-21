@@ -14,7 +14,13 @@
     "react-navigation": "^3.1.2"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0"
+    "@types/axios": "^0.14.0",
+    "@types/react": "^16.8.4",
+    "@types/react-native": "^0.57.37",
+    "@types/react-navigation": "^3.0.3",
+    "babel-preset-expo": "^5.0.0",
+    "react-native-typescript-transformer": "^1.2.11",
+    "typescript": "^3.3.3333"
   },
   "private": true
 }

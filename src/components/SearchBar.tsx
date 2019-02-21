@@ -1,8 +1,15 @@
 import React from 'react';
-import { View, TextInput } from 'react-native';
+import { View, TextInput, StyleSheet } from 'react-native';
 
-const SearchBar = ({ value, onChangeText, placeholder }) => {
+type Props = {
+    value: string;
+    placeholder: string;
+    onChangeText: (value: any) => void;
+};
+
+const SearchBar = (props: Props) => {
     const { view, input } = styles;
+    const { value, placeholder, onChangeText } = props;
 
     return(
         <View style={view}>
@@ -16,7 +23,7 @@ const SearchBar = ({ value, onChangeText, placeholder }) => {
     );
 };
 
-const styles = {
+const styles = StyleSheet.create({
     view: {
         height: 40,
         width: '90%',
@@ -31,6 +38,6 @@ const styles = {
         fontSize: 18,
         color: '#F2CB06'
     }
-};
+});
 
 export default SearchBar;

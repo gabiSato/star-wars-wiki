@@ -9,10 +9,14 @@ import axios from 'axios';
 //depois retorna esses dados para a tela de detalhes do item selecionado
 
 //os dados que deveriam retornar a tela estão com erro de tipo indefinido
-class Link extends Component {
-    constructor(props) {
-        super(props);
-    }
+
+type Props = {
+    item: any;
+    itemClass: any;
+    navigation: any;
+};
+
+class Link extends Component<Props> {
 
     openLink = async () => {
         const response = await axios.get(this.props.item.toString());        
@@ -27,7 +31,7 @@ class Link extends Component {
         if( this.props.itemClass == "vehicle" ){
             return this.props.navigation.navigate("VehicleDetail", { result })
         }
-        retun; 
+        return; 
     };
 
     render() {

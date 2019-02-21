@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavigationScreenProps } from 'react-navigation';
 
 import MainContainer from '../components/MainContainer';
 import Card from '../components/Card';
@@ -7,8 +8,10 @@ import CardTitle from '../components/CardTitle';
 import CardDetails from '../components/CardDetails';
 import CardList from '../components/CardList';
 
-const StarshipDetail = () => {
-    const starship = this.props.navigation.getParam('result', {});
+type Props = NavigationScreenProps & {};
+
+const StarshipDetail = (props: Props) => {
+    const starship = props.navigation.getParam('result', {});
 
     return(
         <MainContainer>

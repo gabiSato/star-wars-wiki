@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
+import { NavigationScreenProps } from 'react-navigation';
 
 import MainContainer from '../components/MainContainer';
 import Card from '../components/Card';
@@ -9,8 +10,10 @@ import CardDetails from '../components/CardDetails';
 import CardList from '../components/CardList';
 import Link from '../components/Link';
 
+type Props = NavigationScreenProps & {};
+
 //Tela de resultado da pesquisa de personagem, pega como parametros os dados de Main.js
-class PersonDetail extends Component {
+class PersonDetail extends Component<Props> {
     static navigationOptions = {
         title: "Personagem",
     };
@@ -57,7 +60,7 @@ class PersonDetail extends Component {
     }
 }
 
-const styles = {
+const styles = StyleSheet.create({
     homeworldContainer: {
         flexDirection: 'row', 
         justifyContent: 'flex-start'
@@ -66,6 +69,6 @@ const styles = {
         color: '#F2CB06', 
         paddingRight: 5
     }
-};
+});
 
 export default PersonDetail;

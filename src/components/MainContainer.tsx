@@ -1,7 +1,11 @@
 import React from 'react';
-import { ImageBackground } from 'react-native';
+import { ImageBackground, StyleSheet } from 'react-native';
 
-const MainContainer = (props) => (
+type Props = {
+    children: React.ReactNode;
+};
+
+const MainContainer = (props: Props) => (
     <ImageBackground 
         source={require('./images/background.png')} 
         style={styles.container}
@@ -10,13 +14,13 @@ const MainContainer = (props) => (
     </ImageBackground>
 );
 
-const styles = {
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: "#000000"
     },
-};
+});
 
 export default MainContainer;

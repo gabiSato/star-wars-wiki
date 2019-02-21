@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { NavigationScreenProps } from 'react-navigation';
 
 import MainContainer from '../components/MainContainer';
 import SearchBar from '../components/SearchBar';
 import Button from '../components/Button';
 
-class Main extends Component {
+type Props = NavigationScreenProps & {};
+
+class Main extends Component<Props> {
     
   static navigationOptions = {
     title: "Star Wars Wiki",

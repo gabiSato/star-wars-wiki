@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavigationScreenProps } from 'react-navigation';
 
 import MainContainer from '../components/MainContainer';
 import Card from '../components/Card';
@@ -7,9 +8,10 @@ import CardTitle from '../components/CardTitle';
 import CardDetails from '../components/CardDetails';
 import CardList from '../components/CardList';
 
+type Props = NavigationScreenProps & {};
 
-const VehicleDetail = () => {
-    const vehicle = this.props.navigation.getParam('result', {});
+const VehicleDetail = (props: Props) => {
+    const vehicle = props.navigation.getParam('result', {});
 
     return(
         <MainContainer>

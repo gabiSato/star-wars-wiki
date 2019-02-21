@@ -1,21 +1,24 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 
 import CardSection from './CardSection';
 
+type Props = {
+    title: string;
+};
 
-const CardTitle = ({ title }) => (
+const CardTitle = (props: Props) => (
     <CardSection>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>{props.title}</Text>
     </CardSection>
 );
 
-const styles = {
+const styles = StyleSheet.create({
     title: {
         color: '#F2CB06',
         fontWeight: 'bold',
         fontSize: 15
     }
-};
+});
 
 export default CardTitle;

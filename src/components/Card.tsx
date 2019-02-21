@@ -1,13 +1,17 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 
-const Card = (props) => (
+type Props = {
+    children: React.ReactNode;
+};
+
+const Card = (props: Props) => (
     <ScrollView style={styles.card}>
         {props.children}
     </ScrollView>
 );
 
-const styles = {
+const styles = StyleSheet.create({
     card:{
         background: 'transparent',
         elevation: 1,
@@ -19,6 +23,6 @@ const styles = {
         borderRadius: 15,
         borderColor: '#F2CB06'
     }
-};
+});
 
 export default Card;

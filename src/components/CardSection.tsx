@@ -1,13 +1,17 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
-const CardSection = (props) => (
+type Props = {
+    children: React.ReactNode;
+};
+
+const CardSection = (props: Props) => (
     <View style={styles.cardSection}>
         {props.children}
     </View>
 );
 
-const styles = {
+const styles = StyleSheet.create({
     cardSection: {
         backgroundColor: 'transparent',
         borderBottomWidth: 1,
@@ -18,6 +22,6 @@ const styles = {
         paddingTop: 10,
         paddingBottom: 10
     }
-};
+});
 
 export default CardSection;
