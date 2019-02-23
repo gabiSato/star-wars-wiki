@@ -13,7 +13,7 @@ const Card = (props: Props) => (
 
 const styles = StyleSheet.create({
     card:{
-        background: 'transparent',
+        backgroundColor: 'transparent',
         elevation: 1,
         marginTop: 10,
         marginLeft: 5,

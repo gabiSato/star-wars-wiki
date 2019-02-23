@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import { NavigationScreenProps } from 'react-navigation';
 import axios from 'axios';
 
 //Mostra o item da lista e faz ele funcionar como um link
@@ -10,7 +11,7 @@ import axios from 'axios';
 
 //os dados que deveriam retornar a tela estão com erro de tipo indefinido
 
-type Props = {
+type Props = NavigationScreenProps & {
     item: any;
     itemClass: any;
     navigation: any;
@@ -20,22 +21,21 @@ class Link extends Component<Props> {
 
     openLink = async () => {
         const response = await axios.get(this.props.item.toString());        
-        const result = response.data;    
-        if( this.props.itemClass == "film" ) {
-            console.log(JSON.stringify(result));
+        const result = response.data;
+
+        if( this.props.itemClass.toLowerCase() == "film" ) {
             return this.props.navigation.navigate("FilmDetail", { result });
         }
-        if( this.props.itemClass == "starship" ) {
+        if( this.props.itemClass.toLowerCase() == "starship" ) {
             return this.props.navigation.navigate("StarshipDetail", { result });
         }
-        if( this.props.itemClass == "vehicle" ){
+        if( this.props.itemClass.toLowerCase() == "vehicle" ){
             return this.props.navigation.navigate("VehicleDetail", { result })
         }
         return; 
     };
 
     render() {
-        console.log(this.props.item);
         return(
             <TouchableOpacity onPress={this.openLink}>
                 <Text style={styles.list}>{this.props.item}</Text>

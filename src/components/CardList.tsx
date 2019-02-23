@@ -6,8 +6,9 @@ import Link from './Link';
 
 type Props = {
     title: string;
-    list: any;
-    listClass: string;
+    //list: any;
+    //listClass: string;
+    children: React.ReactNode;
 };
 
 //Faz a listagem de itens e chama o componente Link
@@ -17,7 +18,7 @@ const CardList = (props: Props) => (
             <Text style={styles.title}>{props.title}</Text>
         </CardSection>
         <CardSection>
-            {props.list.map(item => (<Link key={item} item={item} itemClass={props.listClass} />))}
+            {props.children}
         </CardSection>
     </View>
 );

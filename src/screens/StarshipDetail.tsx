@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 
 import MainContainer from '../components/MainContainer';
@@ -9,6 +10,10 @@ import CardDetails from '../components/CardDetails';
 import CardList from '../components/CardList';
 
 type Props = NavigationScreenProps & {};
+
+function renderItem( list: any ) {
+    return list.map((item: any) => <Text>{item}</Text>);
+}
 
 const StarshipDetail = (props: Props) => {
     const starship = props.navigation.getParam('result', {});
@@ -31,14 +36,12 @@ const StarshipDetail = (props: Props) => {
                     <CardDetails name={"Cargo capacity"} value={starship.cargo_capacity} />
                     <CardDetails name={"Consumables"} value={starship.consumables} />
                 </CardSection>
-                <CardList 
-                    title={"Films"}
-                    list={starship.films}
-                />
-                <CardList 
-                    title={"Pilots"}
-                    list={starship.pilots}
-                />
+                <CardList title={"Films"}>
+                    {renderItem(starship.films)}
+                </CardList>
+                <CardList title={"Pilots"}>
+                    {renderItem(starship.pilots)}
+                </CardList>
             </Card>
         </MainContainer>
     );
