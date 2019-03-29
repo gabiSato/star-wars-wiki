@@ -3,7 +3,9 @@ import axios from 'axios';
 
 interface IContext {
     state: State;
-    action: {};
+    action: {
+        searchPerson(text: string): void;
+    };
 };
 
 export const PeopleContext = React.createContext({} as IContext);
@@ -28,7 +30,9 @@ export class PeopleProvider extends React.PureComponent<{}, State>{
     render() {
         const value = {
             state: { ...this.state },
-            action: {}
+            action: {
+                searchPerson: this.searchPerson,
+            }
         };
 
         return (

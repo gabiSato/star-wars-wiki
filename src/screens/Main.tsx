@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+import React, { useState, useContext } from 'react';
 import { NavigationScreenProps } from 'react-navigation';
 
 import MainContainer from '../components/MainContainer';
 import SearchBar from '../components/SearchBar';
 import Button from '../components/Button';
+import { PeopleContext } from '../context/People';
 
 // class Main extends Component<NavigationScreenProps & {}> {
 
@@ -42,16 +42,21 @@ import Button from '../components/Button';
 // }
 
 const Main = (props: NavigationScreenProps & {}) => {
-  const { search, setSearch } = useState('');
+  const [search, setSearch] = useState("");
+
+  const {
+    action: {searchPerson},
+  } = useContext(PeopleContext);
+
   return (
     <MainContainer>
       <SearchBar
         placeholder="Digite o nome do personagem..."
-        value={this.state.search}
-        onChangeText={search => this.setState({ search })}
+        value={search}
+        onChangeText={text => setSearch(text)}
       />
       <Button
-        onPress={this.searchPerson}
+        onPress={() => searchPerson(search)}
         name={"Pesquisar"}
       />
     </MainContainer>
