@@ -1,22 +1,18 @@
 import React from 'react';
 import axios from 'axios';
 
-interface IContext {
-    state: State;
-    action: {
-        searchPerson(text: string): void;
-    };
-};
+export const PeopleContext = React.createContext({});
 
-export const PeopleContext = React.createContext({} as IContext);
+export class PeopleProvider extends React.PureComponent {
 
-interface State {
-    people: {},
-};
+    constructor(props) {
+        super(props);
+        this.state = {
+            people: {}
+        }
+    }
 
-export class PeopleProvider extends React.PureComponent<{}, State>{
-
-    searchPerson = async (text: string) => {
+    searchPerson = async (text) => {
         try {
             const url = `https://swapi.co/api/people/?search=${text}`;
             const response = await axios.get(url);

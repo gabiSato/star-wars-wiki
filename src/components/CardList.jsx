@@ -4,15 +4,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import CardSection from './CardSection';
 import Link from './Link';
 
-type Props = {
-    title: string;
-    //list: any;
-    //listClass: string;
-    children: React.ReactNode;
-};
-
 //Faz a listagem de itens e chama o componente Link
-const CardList = (props: Props) => (
+const CardList = () => (
     <View>
         <CardSection>
             <Text style={styles.title}>{props.title}</Text>

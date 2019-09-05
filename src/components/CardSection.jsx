@@ -1,11 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-type Props = {
-    children: React.ReactNode;
-};
-
-const CardSection = (props: Props) => (
+const CardSection = () => (
     <View style={styles.cardSection}>
         {props.children}
     </View>

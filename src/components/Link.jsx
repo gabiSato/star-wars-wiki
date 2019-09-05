@@ -11,13 +11,7 @@ import axios from 'axios';
 
 //os dados que deveriam retornar a tela estão com erro de tipo indefinido
 
-type Props = NavigationScreenProps & {
-    item: any;
-    itemClass: any;
-    navigation: any;
-};
-
-class Link extends Component<Props> {
+class Link extends Component {
 
     openLink = async () => {
         const response = await axios.get(this.props.item.toString());        

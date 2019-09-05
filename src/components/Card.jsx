@@ -1,11 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 
-type Props = {
-    children: React.ReactNode;
-};
-
-const Card = (props: Props) => (
+const Card = (children) => (
     <ScrollView style={styles.card}>
         {props.children}
     </ScrollView>

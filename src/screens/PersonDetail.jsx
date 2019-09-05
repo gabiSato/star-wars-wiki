@@ -10,14 +10,12 @@ import CardDetails from '../components/CardDetails';
 import CardList from '../components/CardList';
 import Link from '../components/Link';
 
-type Props = NavigationScreenProps & {};
-
-function renderItem( list: any, listClass: string ) {
-    return list.map((item: any) => <Link key={item} item={item} itemClass={listClass}/>);
+function renderItem( list, listClass) {
+    return list.map((item) => <Link key={item} item={item} itemClass={listClass}/>);
 }
 
 //Tela de resultado da pesquisa de personagem, pega como parametros os dados de Main.js
-class PersonDetail extends Component<Props> {
+class PersonDetail extends Component {
     static navigationOptions = {
         title: "Personagem",
     };

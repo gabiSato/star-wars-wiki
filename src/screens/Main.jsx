@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { NavigationScreenProps } from 'react-navigation';
 
 import MainContainer from '../components/MainContainer';
 import SearchBar from '../components/SearchBar';
@@ -41,7 +40,7 @@ import { PeopleContext } from '../context/People';
 //   }
 // }
 
-const Main = (props: NavigationScreenProps & {}) => {
+const Main = () => {
   const [search, setSearch] = useState("");
 
   const {

@@ -1,11 +1,7 @@
 import React from 'react';
 import { ImageBackground, StyleSheet } from 'react-native';
 
-type Props = {
-    children: React.ReactNode;
-};
-
-const MainContainer = (props: Props) => (
+const MainContainer = (props) => (
     <ImageBackground 
         source={require('./images/background.png')} 
         style={styles.container}

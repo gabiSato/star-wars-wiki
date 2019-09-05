@@ -1,13 +1,7 @@
 import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 
-type Props = {
-    value: string;
-    placeholder: string;
-    onChangeText: (value: any) => void;
-};
-
-const SearchBar = (props: Props) => {
+const SearchBar = (props) => {
     const { view, input } = styles;
     const { value, placeholder, onChangeText } = props;
 

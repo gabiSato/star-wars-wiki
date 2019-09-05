@@ -3,11 +3,7 @@ import { Text, StyleSheet } from 'react-native';
 
 import CardSection from './CardSection';
 
-type Props = {
-    title: string;
-};
-
-const CardTitle = (props: Props) => (
+const CardTitle = () => (
     <CardSection>
         <Text style={styles.title}>{props.title}</Text>
     </CardSection>
