@@ -1,22 +1,19 @@
-import React from 'react';
-import { ImageBackground, StyleSheet } from 'react-native';
+import React from "react";
+import { View, StyleSheet } from "react-native";
 
-const MainContainer = (props) => (
-    <ImageBackground 
-        source={require('./images/background.png')} 
-        style={styles.container}
-    >
-        {props.children}
-    </ImageBackground>
+const MainContainer = props => (
+  <View style={styles.container}>{props.children}</View>
 );
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: "#000000"
-    },
+  container: {
+    flex: 1,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    backgroundColor: "#131418",
+    paddingTop: 22,
+    paddingBottom: 22
+  }
 });
 
 export default MainContainer;
